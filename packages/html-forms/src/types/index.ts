@@ -38,6 +38,8 @@ export type TextFieldProps<
   FormSchema extends Record<string, unknown> = Record<string, unknown>,
   FormError extends string[] = string[],
 > = {
+  description?: string;
+  errorMessage?: string;
   autoCapitalize?:
     | 'none'
     | 'off'
