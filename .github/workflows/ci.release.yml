@@ -1,0 +1,21 @@
+name: CI/CD Release Pipeline
+
+permissions:
+  contents: write
+  pull-requests: write
+
+on:
+  workflow_run:
+    workflows: ['CI/CD Main Pipeline', 'CI/CD PR Pipeline']
+    types:
+      - completed
+
+jobs:
+  release:
+    uses: kurocado-studio/dev-ops/.github/workflows/workflow.release.yml@main
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    with:
+      branch_name: ${{ github.ref_name }}
+      monorepo: true

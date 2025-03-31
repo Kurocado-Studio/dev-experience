@@ -1,0 +1,43 @@
+{
+  "name": "@kurocado-studio/design-system",
+  "version": "0.0.0-semantically-released",
+  "type": "module",
+  "packageManager": "pnpm@9.12.2",
+  "scripts": {
+    "build": "turbo run build",
+    "clean": "turbo run clean && rm -rf .turbo node_modules pnpm-lock.yaml",
+    "commitlint": "pnpm exec commitlint --edit .git/COMMIT_EDITMSG",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "prepare": "husky install",
+    "prettier:check": "turbo run prettier:check",
+    "prettier:fix": "prettier --check . --write && turbo run prettier:fix",
+    "preview-storybook": "turbo run preview-storybook",
+    "semantic-release": "pnpm -r --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo",
+    "setup": "pnpm i && turbo run setup",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "@internal/config": "workspace:*",
+    "commitlint": "^19.8.0",
+    "eslint": "9.23",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "prettier": "3.5.3",
+    "turbo": "^2.0.3"
+  },
+  "lint-staged": {
+    "*": ["prettier --write"],
+    "{apps, packages, internal}/**/*": [
+      "turbo run prettier:fix"
+    ],
+    "{apps, packages, internal}/**/*.{ts,tsx}": [
+      "turbo run lint:fix --",
+      "turbo run lint --"
+    ]
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
