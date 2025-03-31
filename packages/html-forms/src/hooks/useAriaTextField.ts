@@ -10,7 +10,7 @@ import { composeAriaValidityState } from 'src/utils/composeAriaValidityState';
 export const useAriaTextField = <
   FieldSchema = string,
   FormSchema extends Record<string, unknown> = Record<string, unknown>,
-  FormError = string[],
+  FormError extends string[] = string[],
 >(
   config: TextFieldProps<FieldSchema, FormSchema, FormError>,
   formMeta?: TextFieldMeta<FormSchema, FormError>,
