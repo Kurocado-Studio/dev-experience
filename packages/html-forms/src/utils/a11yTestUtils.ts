@@ -8,8 +8,7 @@ export const renderWithA11y = (
   Component: React.ReactElement,
   wrapper?: React.ComponentType<{ children: React.ReactNode }>,
 ): ReturnType<typeof render> => {
-  const { container, ...rest } = render(Component, { wrapper });
-  return { container, ...rest };
+  return render(Component, { wrapper });
 };
 
 export const runA11yAudit = async (

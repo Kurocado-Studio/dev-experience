@@ -3,13 +3,8 @@ import { ReactTestingLibrary } from '@internal/config';
 import React from 'react';
 import type { Mock } from 'vitest';
 
-import { AriaTextField } from '../src/components/AriaTextField';
-import {
-  TestForm,
-  mockFieldMetadata,
-  mockFormMetadata,
-  testA11y,
-} from '../src/utils';
+import { mockFieldMetadata, mockFormMetadata, testA11y } from '../src/utils';
+import { AriaTextField, TestForm } from './components';
 
 const { render, screen } = ReactTestingLibrary;
 
