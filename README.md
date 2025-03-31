@@ -1,1 +1,1 @@
-# Kurocado Studio Turborepo Template
+# Kurocado Studio Developer Experience
