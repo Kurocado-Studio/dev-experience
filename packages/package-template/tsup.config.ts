@@ -2,7 +2,7 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig((options) => ({
-  entry: ['./src/composeAriaValidityState.ts'],
+  entry: ['./src/index.ts'],
   target: 'es5',
   format: ['esm'],
   dts: true,
