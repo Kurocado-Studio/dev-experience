@@ -92,7 +92,7 @@ export const useAriaTextField = <
   return {
     labelProps: {
       ...labelProps,
-      children: config.label ?? null,
+      children: config.label,
       htmlFor: labelOrFallback,
       required,
     },
