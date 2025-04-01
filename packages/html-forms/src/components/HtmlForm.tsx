@@ -7,11 +7,11 @@ export type HtmlFormProps = {
 } & Parameters<typeof useForm>[0];
 
 export function HtmlForm(props: HtmlFormProps): React.ReactNode {
-  const [form] = useForm(props);
+  const [htmlFormProps] = useForm(props);
 
   return (
-    <FormProvider context={form.context}>
-      <form id={form.id} className={props.className}>
+    <FormProvider context={htmlFormProps.context}>
+      <form {...htmlFormProps} className={props.className}>
         {props.children}
       </form>
     </FormProvider>
