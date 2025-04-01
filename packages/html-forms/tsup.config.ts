@@ -9,13 +9,6 @@ export default defineConfig((options) => ({
   clean: true,
   splitting: true,
   treeshake: true,
-  external: [
-    'framer-motion',
-    'react',
-    'react-dom',
-    'tailwind',
-    'tailwind-variants',
-    'tailwindcss-animate',
-  ],
+  external: ['react', 'react-dom'],
   ...options,
 }));
