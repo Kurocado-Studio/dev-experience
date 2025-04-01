@@ -3,7 +3,7 @@ import { ReactTestingLibrary } from '@internal/config';
 import { useTextField } from 'react-aria';
 import type { Mock } from 'vitest';
 
-import { TestForm } from '../src/components';
+import { HtmlForm } from '../src';
 import {
   composeAriaValidityState,
   mockFieldMetadata,
@@ -68,7 +68,7 @@ describe('useAriaTextField Hook - Unit Tests', () => {
         useAriaTextField({
           name: 'test',
         }),
-      { wrapper: TestForm },
+      { wrapper: HtmlForm },
     );
 
     expect(result.current).toBeDefined();
@@ -136,7 +136,7 @@ describe('useAriaTextField Hook - Unit Tests', () => {
           name: 'test',
           label: 'Test Field',
         }),
-      { wrapper: TestForm },
+      { wrapper: HtmlForm },
     );
 
     expect(result.current.isInvalid).toBe(true);
@@ -181,7 +181,7 @@ describe('useAriaTextField Hook - Unit Tests', () => {
         useAriaTextField({
           name: 'test',
         }),
-      { wrapper: TestForm },
+      { wrapper: HtmlForm },
     );
 
     expect(result.current.labelProps.htmlFor).toBeDefined();
@@ -228,7 +228,7 @@ describe('useAriaTextField Hook - Unit Tests', () => {
           name: 'test',
           description: 'This is a description',
         }),
-      { wrapper: TestForm },
+      { wrapper: HtmlForm },
     );
 
     expect(result.current.inputProps['aria-describedby']).toBe('desc-id');
@@ -276,7 +276,7 @@ describe('useAriaTextField Hook - Unit Tests', () => {
         useAriaTextField({
           name: 'test',
         }),
-      { wrapper: TestForm },
+      { wrapper: HtmlForm },
     );
 
     expect(result.current.inputProps['aria-invalid']).toBe(true);

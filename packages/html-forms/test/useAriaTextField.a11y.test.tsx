@@ -3,10 +3,27 @@ import { ReactTestingLibrary } from '@internal/config';
 import React from 'react';
 import type { Mock } from 'vitest';
 
-import { AriaTextField, TestForm } from '../src/components';
+import { useAriaTextField } from 'src/hooks/useAriaTextField';
+import type { TextFieldProps } from 'src/types';
+
+import { HtmlForm } from '../src';
 import { mockFieldMetadata, mockFormMetadata, testA11y } from '../src/utils';
 
 const { render, screen } = ReactTestingLibrary;
+
+function UnitTestAriaTextField(props: TextFieldProps): React.ReactNode {
+  const { labelProps, inputProps, errorMessageProps, descriptionProps } =
+    useAriaTextField(props);
+
+  return (
+    <div>
+      <label {...labelProps}>{labelProps.children}</label>
+      <input {...inputProps} />
+      {descriptionProps?.children ? <div {...descriptionProps} /> : null}
+      {errorMessageProps?.children ? <div {...errorMessageProps} /> : null}
+    </div>
+  );
+}
 
 vi.mock('@conform-to/react', async () => {
   return {
@@ -36,8 +53,8 @@ describe('useAriaTextField Hook - Accessibility Tests', () => {
     ]);
 
     const results = await testA11y(
-      <AriaTextField name='test' label='Test Label' />,
-      TestForm,
+      <UnitTestAriaTextField name='test' label='Test Label' />,
+      HtmlForm,
     );
 
     expect(results).toHaveNoViolations();
@@ -56,12 +73,12 @@ describe('useAriaTextField Hook - Accessibility Tests', () => {
     ]);
 
     const results = await testA11y(
-      <AriaTextField
+      <UnitTestAriaTextField
         name='test'
         label='Test Label'
         errorMessage='Field is required'
       />,
-      TestForm,
+      HtmlForm,
     );
 
     expect(results).toHaveNoViolations();
@@ -79,9 +96,9 @@ describe('useAriaTextField Hook - Accessibility Tests', () => {
     ]);
 
     render(
-      <TestForm>
-        <AriaTextField name='test' label='Test Label' />
-      </TestForm>,
+      <HtmlForm>
+        <UnitTestAriaTextField name='test' label='Test Label' />
+      </HtmlForm>,
     );
 
     const input = screen.getByLabelText('Test Label');
@@ -100,13 +117,13 @@ describe('useAriaTextField Hook - Accessibility Tests', () => {
     ]);
 
     render(
-      <TestForm>
-        <AriaTextField
+      <HtmlForm>
+        <UnitTestAriaTextField
           name='test'
           label='Test Label'
           description='This is a description'
         />
-      </TestForm>,
+      </HtmlForm>,
     );
 
     const input = screen.getByLabelText('Test Label');
@@ -130,9 +147,9 @@ describe('useAriaTextField Hook - Accessibility Tests', () => {
     ]);
 
     render(
-      <TestForm>
-        <AriaTextField name='test' label='Test Label' />
-      </TestForm>,
+      <HtmlForm>
+        <UnitTestAriaTextField name='test' label='Test Label' />
+      </HtmlForm>,
     );
 
     const input = screen.getByLabelText('Test Label');
