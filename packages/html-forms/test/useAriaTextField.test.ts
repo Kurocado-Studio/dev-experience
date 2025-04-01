@@ -3,8 +3,8 @@ import { ReactTestingLibrary } from '@internal/config';
 import { useTextField } from 'react-aria';
 import type { Mock } from 'vitest';
 
+import { TestForm } from '../src/components';
 import {
-  TestForm,
   composeAriaValidityState,
   mockFieldMetadata,
   mockFormMetadata,
@@ -75,7 +75,7 @@ describe('useAriaTextField Hook - Unit Tests', () => {
     expect(result.current.labelProps).toEqual({
       htmlFor: 'label-desc-id',
       required: false,
-      children: null,
+      children: undefined,
     });
     expect(result.current.inputProps).toEqual({
       name: 'test',
