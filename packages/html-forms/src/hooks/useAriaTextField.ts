@@ -71,7 +71,7 @@ export const useAriaTextField = <
     descriptionProps,
     validationErrors,
     ...restTextFieldProps
-  } = useTextField(ariaTextFieldProps, inputRef);
+  } = useTextField({ ...ariaTextFieldProps, ...config }, inputRef);
 
   const combinedInputProps = mergeProps(
     {
