@@ -1,6 +1,6 @@
 import type { FormValue } from '@conform-to/dom';
 import type { FieldMetadata, FormMetadata } from '@conform-to/react';
-import get from 'lodash-es/get';
+import { get } from 'lodash-es';
 import { vi } from 'vitest';
 
 export const composeRandomId = (): string => new Date().toISOString();
