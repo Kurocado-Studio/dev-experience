@@ -1,5 +1,5 @@
 {
-  "name": "@kurocado-studio/design-system",
+  "name": "@kurocado-studio/dev-experience",
   "version": "0.0.0-semantically-released",
   "type": "module",
   "packageManager": "pnpm@9.12.2",

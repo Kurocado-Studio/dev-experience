@@ -1,14 +1,16 @@
-name: CI/CD Release Pipeline
+name: CI/CD Pipeline
 
 permissions:
   contents: write
   pull-requests: write
 
 on:
-  workflow_run:
-    workflows: ['CI/CD Main Pipeline', 'CI/CD PR Pipeline']
-    types:
-      - success
+  push:
+    branches:
+      - alpha
+      - beta
+      - canary
+      - pre/rc
 
 jobs:
   release:

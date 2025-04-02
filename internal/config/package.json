@@ -8,10 +8,11 @@
   "license": "MIT",
   "main": "./src/index.js",
   "module": "./src/index.js",
+  "types": "./src/index.ts",
   "type": "module",
   "exports": {
     ".": {
-      "types": "./src/index.d.ts",
+      "types": "./src/index.ts",
       "import": "./src/index.js"
     },
     "./tsconfig.web": "./src/tsconfig.web.json",
@@ -31,7 +32,8 @@
     "@kurocado-studio/styleguide": "^2.3.2",
     "@testing-library/jest-dom": "^6.6.3",
     "semantic-release": "^24.2.3",
-    "semantic-release-monorepo": "^8.0.2"
+    "semantic-release-monorepo": "^8.0.2",
+    "vitest-axe": "^0.1.0"
   },
   "publishConfig": {
     "access": "public"
