@@ -1,6 +1,6 @@
 import { useField, useInputControl } from '@conform-to/react';
 import { mergeProps } from '@react-aria/utils';
-import get from 'lodash-es/get';
+import { get } from 'lodash-es';
 import { useRef } from 'react';
 import { useTextField } from 'react-aria';
 
