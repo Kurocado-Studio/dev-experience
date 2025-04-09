@@ -1,5 +1,3 @@
-# About Developer Experience
-
 # Overview
 
 |            |                                                                                                                                                                                                                        |
