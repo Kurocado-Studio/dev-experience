@@ -1,15 +1,4 @@
-import { ReactTestingLibrary } from '@kurocado-studio/qa';
+export { ReactTestingLibrary as reactTestingLibrary } from '@kurocado-studio/qa';
+export * from '@kurocado-studio/qa';
 
-export { defineConfig, vitestReact } from '@kurocado-studio/qa';
-
-export const reactTestingLibrary = ReactTestingLibrary;
-
-export {
-  prettierConfig,
-  semanticReleaseAppConfig,
-  semanticReleaseNpmConfig,
-  eslintNodeConfig,
-  eslintReactConfig,
-  commitLintConfig,
-  defineESLintConfig,
-} from '@kurocado-studio/styleguide';
+export * from '@kurocado-studio/styleguide';
